@@ -82,6 +82,11 @@ div .list .item:hover .remove {
   #input {
     bottom: 3em;
   }
+
+  #login .content .description {
+    text-align: center;
+    height: 120px;
+  }
 }
 
 #login #ds-login {

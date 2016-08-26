@@ -20,6 +20,32 @@ function getRandomInt(range, wt) {
     return Math.floor(Math.random() * range + wt)
 }
 
+function genRandomLabelHandler(value, is_avatar=true) {
+  if (!value) {
+      return;
+  }
+
+  if (is_avatar) {
+    var avatar = $('#avatar').attr('src');
+  } else {
+    var avatar = is_avatar;
+  }
+  
+  var div = document.getElementById('tanxiao');
+  var x = getRandomInt();
+  var y = getRandomInt();
+  var basic = Math.random() < 0.5 ? true : false;
+  var color = colors[Math.floor(Math.random() * colors.length)]
+
+  if (value.length === 1) {
+      var size = '3.8em';
+  } else {
+      var size = .7 + (4 / value.length) + 'em'
+  }
+  
+  return { content: value, color: color, x: x + '%', y: y + '%', basic: basic, size: size, avatar: avatar };
+}
+
 
 Vue.transition('fade', {
   css: false,
@@ -42,6 +68,11 @@ Vue.transition('fade', {
 
 window.labels = []
 
+$.each(['身', '经', '百', '战', '方', '可', '谈', '笑', '风', '生'], function(index, value) {
+  window.labels.push(genRandomLabelHandler(value, false));
+});
+
+
 
 var vm = new Vue({
   el: "#tanxiao",
@@ -51,27 +82,10 @@ var vm = new Vue({
   },
   methods: {
       addLabel: function() {
-          var div = document.getElementById('tanxiao');
-          var x = getRandomInt();
-          var y = getRandomInt();
-          var basic = Math.random() < 0.5 ? true : false;
-
           var value = this.newTitle && this.newTitle.trim();
-
-          if (!value) {
-              return;
-          }
-
-          if (value.length === 1) {
-              var size = '3.8em';
-          } else {
-              var size = .7 + (4 / value.length) + 'em'
-          }
-
-          var color = colors[Math.floor(Math.random() * colors.length)]
-          ref.push({ content: value, color: color, x: x + '%', y: y + '%', basic: basic, size: size});
           this.newTitle = "";
-
+          label = genRandomLabelHandler(value);
+          ref.push(label);
           if (this.labels.length > 20) {
             // 如果队列大于三十则去除最早的记
             this.labels.shift();

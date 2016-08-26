@@ -20,11 +20,12 @@ function getRandomInt(range, wt) {
     return Math.floor(Math.random() * range + wt)
 }
 
-function genRandomLabelHandler(value, is_avatar=true) {
+function genRandomLabelHandler(value, is_avatar) {
   if (!value) {
       return;
   }
 
+  is_avatar = typeof is_avatar !== 'undefined' ?  is_avatar : true;
   if (is_avatar) {
     var avatar = $('#avatar').attr('src');
   } else {

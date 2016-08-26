@@ -103,6 +103,12 @@ div .list .item:hover .remove {
   float: left;
 }
 
+.ui.tiny.bordered.labelimage.circular.image {
+  position: absolute; 
+  right: -13px; 
+  top: -13px;
+}
+
 /*
 #ds-login a {
     border-radius: .58571429rem;

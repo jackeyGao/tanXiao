@@ -21,7 +21,9 @@
           :class="[ label.color, { basic: label.basic } ]"
           :style="{ position: 'absolute', left: label.x, top: label.y, fontSize: label.size}"
           >${ label.content }}
-          <img v-show="label.avatar" id="avatar" class="ui tiny bordered circular image" style="width: 50px; position: absolute; right: -13px; top: -13px;" src="${ label.avatar }}">
+          <img class="ui tiny bordered labelimage circular image" 
+            v-if="label.avatar"
+            :src="label.avatar">
           </a>
         </div>
       </div>

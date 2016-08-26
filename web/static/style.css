@@ -1,0 +1,180 @@
+.monospaced {
+	font-family: Courier New;
+}
+
+.edit {
+    	display: none;
+}
+
+div.editing .edit {
+	display: block;
+}
+
+div.editing .checkbox {
+	display: none;
+}
+
+div .remove {
+	display: none;
+}
+
+div .remove:hover {
+	display: block;
+}
+
+div .list .item:hover .remove {
+	display: block;
+}
+
+.clear {
+    float: right;
+}
+
+.clear:hover {
+	text-decoration: underline;
+	color: #777;
+}
+
+.intro {
+	margin-top: 5em;
+    text-align: center;
+}
+
+.intro span {
+    color: #BFBFBF;
+    font-style:italic;
+    font-family: Courier,Quantico,"Luxi Sans","DejaVu Sans",Tahoma,"Hiragino Sans GB",STHeiti,"微软雅黑",sans-serif!important;
+}
+
+
+.ui.label {
+  border-radius: .58571429rem;
+  margin-bottom: 20px;
+  max-width: 250px;
+  padding: .5em .7em;
+  line-height: 150%;
+}
+
+
+#input {
+    position: absolute;
+    bottom: 5em;
+    left: 50%;
+    z-index: 2;
+    width: 18em;
+    font-size: 1.4em;
+    margin: 0 0 0 -9em;
+    transition: 1s ease;
+}
+
+#input input {
+    background: rgba(238,203,203,.13);
+    transition: .3s ease;
+}
+
+
+@media only screen and (max-width: 767px) {
+  .ui.stackable.grid>.column:not(.row) {
+    padding: 0rem!important;
+    font-size: 10px;
+  }
+
+  #input {
+    bottom: 3em;
+  }
+}
+
+#login #ds-login {
+  text-align: center;
+}
+
+#login #ds-login .ds-icons-32 {
+  position: absolute;
+  bottom: 1em;
+  left: 50%;
+  z-index: 2;
+  width: 12em;
+  font-size: 1.4em;
+  margin: 0 0 0 -6em;
+  transition: 1s ease;
+}
+
+#login #ds-login .ds-icons-32 a{
+  float: left;
+}
+
+/*
+#ds-login a {
+    border-radius: .58571429rem;
+    margin-bottom: 20px;
+    max-width: 250px;
+    padding: .5em .7em;
+    line-height: 150%;
+
+        display: inline-block;
+    line-height: 1;
+    vertical-align: baseline;
+    margin: 0 .14285714em;
+    background-color: #E8E8E8;
+    background-image: none;
+    padding: .5833em .833em;
+    color: rgba(0,0,0,.6);
+    text-transform: none;
+    font-weight: 700;
+    border: 0 solid transparent;
+    border-radius: .28571429rem;
+    -webkit-transition: background .1s ease;
+    transition: background .1s ease;
+}
+
+#ds-login a {
+    font-family: FontAwesome;
+    font-style: normal;
+}
+
+#ds-login .ds-weixin {
+    background-color: #B5CC18!important;
+    border-color: #B5CC18!important;
+    color: #eee!important;
+}
+
+#ds-login .ds-weixin:before {
+    content: "\f1d7";
+}
+
+#ds-login .ds-weibo {
+    background-color: #f92522!important;
+    border-color: #f92522!important;
+    color: #FFF!important;
+}
+
+#ds-login .ds-weibo:before {
+    content: "\f18a";
+}
+
+
+#ds-login .ds-renren {
+    background-color: #004ea1!important;
+    border-color: #004ea1!important;
+    color: #FFF!important;
+}
+
+#ds-login .ds-renren:before {
+    content: "\f18b";
+}
+
+
+#ds-login .ds-qq {
+    background-color: #63a0d3!important;
+    border-color: #63a0d3!important;
+    color: #FFF!important;
+}
+
+#ds-login .ds-qq:before {
+    content: "\f1d6";
+}
+
+#ds-login .ds-kaixin, #ds-login .ds-douban {
+    display: none;
+}
+*/

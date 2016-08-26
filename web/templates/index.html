@@ -1,0 +1,114 @@
+<html data-framework="vue">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>memeDa</title>
+    <link href="/static/semantic.min.css" rel="stylesheet">
+    <link href="/static/style.css" rel="stylesheet">
+    <link href="http://static.duoshuo.com/styles/embed.bluebox.css?39a75d50.css" rel="stylesheet">
+  </head>
+  <body>
+    <div id="tanxiao" class="ui one column stackable grid" style="height: 100%; margin: 0px 0px;">
+      <div class="column" style="height: 100%;">
+        {% if user.is_authenticated %}
+        <img id="avatar" class="ui right floated tiny circular image" style="width: 50px;" src="{{ profile.avatar }}">
+        <h3 class="ui right floated grey header" style="margin-top: 20px;">{{ user.username }}</h3>
+        {% endif %}
+        <div v-show="labels" class="labels" style="width: 100%; height: 100%">
+          <a class="ui massive label"
+          transition="fade" stagger="200" 
+          v-for="label in labels" 
+          :class="[ label.color, { basic: label.basic } ]"
+          :style="{ position: 'absolute', left: label.x, top: label.y, fontSize: label.size}"
+          >${ label.content }}</a>
+        </div>
+      </div>
+      <div id="input">
+        <div class="ui massive fluid input" >
+           <input v-model="newTitle" type="text" placeholder="说点啥?"
+            @keyup.enter="addLabel"
+            >
+        </div>
+      </div>
+      <div id="login" class="ui small modal" style="display: none;">
+        <i class="close icon"></i>
+        <div class="header">
+          Join! 请登录
+        </div>
+        <div class="content">
+          <div class="description" style="text-align: center;height: 80px;">
+            <span class="grey text">还不赶快加入？ (́◉◞౪◟◉‵)</span>
+            <div class="ds-login" id="ds-login" ></div>
+          </div>
+        </div>
+      </div>
+
+      <div id="logout" class="ui small modal" style="display: none;">
+        <i class="close icon"></i>
+        <div class="header">
+          已登录, 接下来, 注销?
+        </div>
+        <div class="content">
+          <div class="description" style="text-align: center;">
+            <span class="grey text">是否注销?</span>
+          </div>
+        </div>
+        <div class="actions">
+          <div class="ui basic grey cancel button">Cancal</div>
+          <a href="/auth/logout/"><div class="ui basic green button">Logout</div></a>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script src="/static/js/vue.js"></script>
+  <script src="/static/jquery.js"></script>
+  <script src = "https://cdn.wilddog.com/js/client/current/wilddog.js" ></script>
+  <script src="/static/app.js"></script>
+  <script src="/static/semantic.min.js"></script>
+  
+  <script>
+
+  {% if not user.is_authenticated %}
+  $(function() {
+    $("input").on("click", function(){
+      $('#login')
+        .modal({
+          inverted: true
+        })
+        .modal("show");
+      ;
+    })
+  });
+  {% endif %}
+
+  $(function() {
+    $("#avatar").on("click", function() {
+      $('#logout')
+        .modal({
+          inverted: true
+        })
+        .modal("show");
+    });
+  });
+
+  </script>
+
+  <script>
+  var url = window.location.href;
+  var duoshuoQuery = {
+       short_name: "jackeygaoblog", 
+       sso: { 
+           login: url + "auth/callback/",//替换为你自己的回调地址
+           logout: url + "auth/logout/"//替换为你自己的回调地址
+       }};
+
+    (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';ds.async = true;
+        ds.src = 'http://static.duoshuo.com/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+</html>
+

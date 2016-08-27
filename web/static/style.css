@@ -105,6 +105,10 @@ div .list .item:hover .remove {
   height: 100%
 }
 
+#tanxiao .column .labels a {
+  margin: 14px 14px;
+}
+
 @media only screen and (max-width: 767px) {
   .ui.stackable.grid>.column:not(.row) {
     padding: 0rem!important;

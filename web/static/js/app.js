@@ -36,6 +36,7 @@ function genRandomLabelHandler(value, is_avatar) {
   var x = getRandomInt();
   var y = getRandomInt();
   var basic = Math.random() < 0.5 ? true : false;
+  var zy = Math.random() < 0.5 ? 'left' : 'right';
   var color = colors[Math.floor(Math.random() * colors.length)]
 
   if (value.length === 1) {
@@ -44,7 +45,8 @@ function genRandomLabelHandler(value, is_avatar) {
       var size = .7 + (4 / value.length) + 'em'
   }
   
-  return { content: value, color: color, x: x + '%', y: y + '%', basic: basic, size: size, avatar: avatar };
+  var styles = 'position: absolute;' + zy + ': ' + x + '%; top: ' + y + '%; font-size: ' + size + ';';
+  return { content: value, color: color, basic: basic, avatar: avatar, styles: styles };
 }
 
 

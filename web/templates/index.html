@@ -24,7 +24,7 @@
           transition="fade" stagger="200" 
           v-for="label in labels" 
           :class="[ label.color, { basic: label.basic } ]"
-          :style="{ position: 'absolute', left: label.x, top: label.y, fontSize: label.size, margin: '14px 14px'}"
+          :style="label.styles"
           >${ label.content }}
           <img class="ui tiny bordered labelimage circular image" 
             v-if="label.avatar"
@@ -78,7 +78,7 @@
       </div>
     </div>
   </body>
-  <script src="/static/js/vue.min.js"></script>
+  <script src="/static/js/vue.js"></script>
   <script src="/static/js/jquery.js"></script>
   <script src="/static/js/wilddog.js" ></script>
   <script src="/static/js/app.js"></script>

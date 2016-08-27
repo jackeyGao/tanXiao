@@ -70,6 +70,8 @@ div .list .item:hover .remove {
 #input input {
     background: rgba(238,203,203,.13);
     transition: .3s ease;
+    border: 2px solid rgba(34,36,38,.15);
+    color: #767676;
 }
 
 #login .content .description {

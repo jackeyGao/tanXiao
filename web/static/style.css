@@ -77,6 +77,31 @@ div .list .item:hover .remove {
   height: 100px;
 }
 
+#logout .content .description {
+  text-align: center;
+}
+
+#avatar {
+  width: 50px;
+}
+
+#username {
+  margin-top: 20px;
+}
+
+#tanxiao {
+  height: 100%; 
+  margin: 0px 0px;
+}
+
+#tanxiao .column {
+  height: 100%;
+}
+
+#tanxiao .column .labels {
+  width: 100%; 
+  height: 100%
+}
 
 @media only screen and (max-width: 767px) {
   .ui.stackable.grid>.column:not(.row) {

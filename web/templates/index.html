@@ -5,8 +5,8 @@
     <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" />
     <title>身经百战方可谈笑风声 ( ´◔ ‸◔')</title>
     <link href="/static/semantic.min.css" rel="stylesheet">
-    <link href="/static/embed.bluebox.css" rel="stylesheet">
     <link href="/static/style.css" rel="stylesheet">
+    <script type="text/javascript" async="" src="/static/js/embed.js" charset="UTF-8"></script>
   </head>
   <body>
     <div id="tanxiao" class="ui one column stackable grid">
@@ -24,7 +24,7 @@
           transition="fade" stagger="200" 
           v-for="label in labels" 
           :class="[ label.color, { basic: label.basic } ]"
-          :style="{ position: 'absolute', left: label.x, top: label.y, fontSize: label.size}"
+          :style="{ position: 'absolute', left: label.x, top: label.y, fontSize: label.size, margin: '14px 14px'}"
           >${ label.content }}
           <img class="ui tiny bordered labelimage circular image" 
             v-if="label.avatar"
@@ -104,24 +104,14 @@
         .modal("show");
     });
   });
-  </script>
 
-  <script>
-    var url = window.location.href;
-    var duoshuoQuery = {
-       short_name: "jackeygaoblog", 
-       sso: { 
-           login: url + "auth/callback/",
-           logout: url + "auth/logout/"
-       }};
-
-    (function() {
-        var ds = document.createElement('script');
-        ds.type = 'text/javascript';ds.async = true;
-        ds.src = '//static.duoshuo.com/embed.js';
-        ds.charset = 'UTF-8';
-        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ds);
-    })();
+  // 多说SSO登录
+  var duoshuoQuery = {
+    short_name: "jackeygaoblog", 
+    sso: { 
+      login: window.location.href + "auth/callback/",
+      logout: window.location.href + "auth/logout/"
+  }};
   </script>
 </html>
 
